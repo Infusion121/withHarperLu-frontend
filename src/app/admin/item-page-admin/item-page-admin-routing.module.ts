@@ -9,13 +9,13 @@ import { AddEditItemPageAdminComponent } from './add-edit-item-page-admin/add-ed
 
 const routes: Routes = [
   Shell.childRoutes([
-    { path: 'admin/itemPage', component: ItemPageAdminComponent, data: { title: extract('itempage') } },
-    { path: 'admin/itemPage/add', component: AddEditItemPageAdminComponent, data: { title: extract('itempage-add') } },
-    {
-      path: 'admin/itemPage/edit/:id',
-      component: AddEditItemPageAdminComponent,
-      data: { title: extract('itempage-edit') },
-    },
+    //  { path: 'admin/itemPage', component: ItemPageAdminComponent, data: { title: extract('itempage') } },
+    //  { path: 'admin/itemPage/add', component: AddEditItemPageAdminComponent, data: { title: extract('itempage-add') } },
+    //  {
+    //  path: 'admin/itemPage/edit/:id',
+    // component: AddEditItemPageAdminComponent,
+    // data: { title: extract('itempage-edit') },
+    //},
   ]),
 ];
 

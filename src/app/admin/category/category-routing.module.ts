@@ -9,9 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   Shell.childRoutes([
-    { path: 'admin/category', component: CategoryComponent, data: { title: extract('category') } },
-    { path: 'admin/category/add', component: AddEditCategoryComponent, data: { title: extract('category-add') } },
-    { path: 'admin/category/edit/:id', component: AddEditCategoryComponent, data: { title: extract('category-edit') } },
+    //{ path: 'admin/category', component: CategoryComponent, data: { title: extract('category') } },
+    // { path: 'admin/category/add', component: AddEditCategoryComponent, data: { title: extract('category-add') } },
+    //{ path: 'admin/category/edit/:id', component: AddEditCategoryComponent, data: { title: extract('category-edit') } },
   ]),
 ];
 

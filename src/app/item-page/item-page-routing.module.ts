@@ -6,7 +6,7 @@ import { Shell } from '@app/shell/shell.service';
 import { ItemPageComponent } from './item-page.component';
 
 const routes: Routes = [
-  Shell.childRoutes([{ path: ':url', component: ItemPageComponent, data: { title: extract('ItemPage') } }]),
+  //Shell.childRoutes([{ path: ':url', component: ItemPageComponent, data: { title: extract('ItemPage') } }]),
 ];
 
 @NgModule({

@@ -26,35 +26,5 @@ export class HomeComponent implements OnInit {
 
   constructor(private dataservice: DataService, private router: Router) {}
 
-  ngOnInit() {
-    this.dataservice.getAllCategoryPages();
-    this.dataservice.itemPageListUpdated.pipe(take(1)).subscribe((categoryPageList) => {
-      let categoryPages = categoryPageList;
-      this.itemPageList = categoryPages;
-    });
-  }
-
-  gotoItemPage(pageUrl: string) {
-    this.router.navigateByUrl(pageUrl);
-  }
-
-  //Function to get all category pages by category id
-  getCategoryPages(catId: string, numberofItems: number, sortBy: string, ascending: boolean) {
-    let categoryPages = this.itemPageList.filter((x) => x.categories.includes(catId)).slice(0, numberofItems);
-    if (sortBy != '') {
-      categoryPages = categoryPages.sort((a: any, b: any) => {
-        if (a[sortBy] < b[sortBy]) {
-          return -1;
-        } else if (a[sortBy] > b[sortBy]) {
-          return 1;
-        } else {
-          return 0;
-        }
-      });
-    }
-    if (!ascending) {
-      return categoryPages.reverse();
-    }
-    return categoryPages;
-  }
+  ngOnInit() {}
 }
