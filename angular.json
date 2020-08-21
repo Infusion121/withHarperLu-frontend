@@ -34,7 +34,7 @@
               "src/main.scss",
               "node_modules/slick-carousel/slick/slick.scss",
               "node_modules/slick-carousel/slick/slick-theme.scss",
-              "src/custom.css"
+              "src/custom.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
