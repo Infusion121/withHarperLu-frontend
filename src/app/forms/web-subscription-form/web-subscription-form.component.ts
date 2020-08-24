@@ -52,6 +52,7 @@ export class WebSubscriptionFormComponent implements OnInit {
     this.submitted = true;
     // stop here if form is invalid
     if (this.webSubscriptionForm.invalid) {
+      console.log('Form is invalid');
       return;
     } else {
       let ele = document.getElementById('validateRecaptcha') as HTMLElement;

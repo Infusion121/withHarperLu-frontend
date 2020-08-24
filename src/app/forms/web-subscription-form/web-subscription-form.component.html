@@ -6,13 +6,13 @@
         type="text"
         formControlName="email_address"
         class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f.email_address.errors }"
+        [ngClass]="{ 'is-invalid-textbox': submitted && f.email_address.errors }"
       />
     </div>
     <!--
     --><button type="submit" class="btn btn-primary">Subscribe <img src="../../../assets/arrow-right.svg" /></button>
   </div>
-  <div *ngIf="submitted && f.email_address.errors" class="invalid-feedback">
+  <div *ngIf="submitted && f.email_address.errors" [ngClass]="{ 'error-msg': submitted && f.email_address.errors }">
     <div *ngIf="f.email_address.errors.required">Email is required</div>
     <div *ngIf="f.email_address.errors.email">Email must be a valid email address</div>
   </div>
