@@ -43,7 +43,8 @@ button {
   max-width: 420px;
   margin: 20px auto 0;
   form .form-group-fields {
-    vertical-align: bottom;
+    display: inline-flex;
+    align-items: flex-end;
     .inputField {
       display: inline-block;
       width: 100%;
@@ -79,11 +80,12 @@ button {
       background: #fff;
       color: #000;
       font-size: 10px;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       text-transform: uppercase;
-      padding: 0 5px 0 10px;
+      padding: 0 0px 0 5px;
       height: 30px;
-      margin: 0 0 1px;
+      margin: 0px;
+      width: 120px;
 
       img {
         display: inline-block;
@@ -100,6 +102,14 @@ button {
       }
     }
   }
+}
+
+.error-msg div {
+  color: red;
+  font-size: 10px;
+  letter-spacing: 2px;
+  display: block;
+  margin: 5px auto 0;
 }
 
 .footer {
@@ -186,11 +196,14 @@ button {
   .subscribe form .form-group-fields button {
     font-size: 14px;
     height: 40px;
-    margin-bottom: 2px;
     padding: 0 10px 0 15px;
+    width: 200px;
   }
   .subscribe form .form-group-fields button img {
     width: 22px;
+  }
+  .error-msg div {
+    font-size: 12px;
   }
   .footer {
     position: fixed;
