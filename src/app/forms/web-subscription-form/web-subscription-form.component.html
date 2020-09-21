@@ -1,36 +1,39 @@
-<form id="webSubscriptionFormContainer" [formGroup]="webSubscriptionForm" (ngSubmit)="onSubmit()">
-  <div class="form-group-fields">
-    <div class="inputField">
-      <label>Email</label>
-      <input
-        type="text"
-        formControlName="email_address"
-        class="form-control"
-        [ngClass]="{ 'is-invalid-textbox': submitted && f.email_address.errors }"
-      />
-    </div>
-    <!--
+<block-ui>
+  <p id="subscription-description">Subscribe to our newsletter to be the first to know when our website is launched</p>
+  <form id="webSubscriptionFormContainer" [formGroup]="webSubscriptionForm" (ngSubmit)="onSubmit()">
+    <div class="form-group-fields">
+      <div class="inputField">
+        <label>Email</label>
+        <input
+          type="text"
+          formControlName="email_address"
+          class="form-control"
+          [ngClass]="{ 'is-invalid-textbox': submitted && f.email_address.errors }"
+        />
+      </div>
+      <!--
     --><button type="submit" class="btn btn-primary">Subscribe <img src="../../../assets/arrow-right.svg" /></button>
-  </div>
-  <div *ngIf="submitted && f.email_address.errors" [ngClass]="{ 'error-msg': submitted && f.email_address.errors }">
-    <div *ngIf="f.email_address.errors.required">Email is required</div>
-    <div *ngIf="f.email_address.errors.email">Email must be a valid email address</div>
-  </div>
+    </div>
+    <div *ngIf="submitted && f.email_address.errors" [ngClass]="{ 'error-msg': submitted && f.email_address.errors }">
+      <div *ngIf="f.email_address.errors.required">Email is required</div>
+      <div *ngIf="f.email_address.errors.email">Email must be a valid email address</div>
+    </div>
 
-  <ngx-invisible-recaptcha
-    #captchaElemwebSubscription
-    [siteKey]="siteKey"
-    [useGlobalDomain]="false"
-    (success)="handleSuccess($event)"
-    formControlName="recaptcha"
-  >
-  </ngx-invisible-recaptcha>
-</form>
-<!-- button for invisible recaptcha validation-->
-<button id="validateRecaptcha" (click)="captchaElemwebSubscription.execute()" style="display: none;"></button>
+    <ngx-invisible-recaptcha
+      #captchaElemwebSubscription
+      [siteKey]="siteKey"
+      [useGlobalDomain]="false"
+      (success)="handleSuccess($event)"
+      formControlName="recaptcha"
+    >
+    </ngx-invisible-recaptcha>
+  </form>
+  <!-- button for invisible recaptcha validation-->
+  <button id="validateRecaptcha" (click)="captchaElemwebSubscription.execute()" style="display: none;"></button>
 
-<!-- Form submission completion message container-->
-<div id="submission_complete_container" style="display: none;">
-  <p>Thank you for subscribing to us. We will contact you soon</p>
-</div>
-<!-- Form submission completion message container-->
+  <!-- Form submission completion message container-->
+  <div id="submission_complete_container" style="display: none;">
+    <p>Thank you for subscribing.</p>
+  </div>
+  <!-- Form submission completion message container-->
+</block-ui>

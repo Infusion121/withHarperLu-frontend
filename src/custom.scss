@@ -112,11 +112,16 @@ button {
   margin: 5px auto 0;
 }
 
-.footer {
+.footer,
+.footer a {
   font-size: 10px;
   letter-spacing: 2px;
   display: block;
   margin: 25px auto 0;
+  color: black;
+  a {
+    display: inline-block;
+  }
 }
 
 @media only screen and (min-width: 480px) {
@@ -177,8 +182,9 @@ button {
     width: 420px;
   }
   .comingSoon p,
-  .footer {
-    font-size: 14px;
+  .footer,
+  .footer a {
+    font-size: 12px;
   }
   .subscribe {
     max-width: 460px;

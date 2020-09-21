@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ReCaptchaV3Service } from 'ngx-captcha';
 import { Formservice } from '@app/services/form.service';
 import { take } from 'rxjs/operators';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 @Component({
   selector: 'app-web-subscription-form',
@@ -10,6 +11,8 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./web-subscription-form.component.scss'],
 })
 export class WebSubscriptionFormComponent implements OnInit {
+  @BlockUI() blockUI: NgBlockUI;
+
   webSubscriptionForm: FormGroup;
   phoneNumber = '^(+d{1,3}[- ]?)?d{10}$';
   submitted = false;
@@ -30,16 +33,18 @@ export class WebSubscriptionFormComponent implements OnInit {
     this.formSevice.subscriptionComplete.pipe(take(1)).subscribe((value) => {
       if (value == 'completed') {
         let formContainer = document.getElementById('webSubscriptionFormContainer') as HTMLElement;
-        formContainer.style.display = 'none';
+        formContainer.classList.add('invisible');
+        let subscriptionDescriptionContainer = document.getElementById('subscription-description') as HTMLElement;
+        subscriptionDescriptionContainer.classList.add('invisible');
         let submissionCompleteContainer = document.getElementById('submission_complete_container') as HTMLElement;
         submissionCompleteContainer.style.display = 'block';
+        this.blockUI.stop();
       }
     });
   }
 
   handleSuccess(event: any) {
     let formData = this.webSubscriptionForm.value;
-    console.log(formData.email_address);
     this.formSevice.newWebsiteSubscription(formData.email_address);
   }
 
@@ -49,10 +54,11 @@ export class WebSubscriptionFormComponent implements OnInit {
   }
 
   onSubmit() {
+    this.blockUI.start();
     this.submitted = true;
     // stop here if form is invalid
     if (this.webSubscriptionForm.invalid) {
-      console.log('Form is invalid');
+      this.blockUI.stop();
       return;
     } else {
       let ele = document.getElementById('validateRecaptcha') as HTMLElement;

@@ -1,5 +1,5 @@
 {
-  "name": "ng-x-rocket",
+  "name": "with-harper-lu",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -40,7 +40,8 @@
     "slick-carousel": "^1.8.1",
     "tslib": "^1.10.1",
     "zone.js": "^0.10.3",
-    "ngx-captcha": "^8.0.1"
+    "ngx-captcha": "^8.0.1",
+    "ng-block-ui": "^3.0.0"
   },
   "devDependencies": {
     "@angular-builders/jest": "^8.3.2",

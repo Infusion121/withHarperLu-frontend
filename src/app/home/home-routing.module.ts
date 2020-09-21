@@ -5,7 +5,9 @@ import { extract } from '@app/i18n';
 import { HomeComponent } from './home.component';
 import { Shell } from '@app/shell/shell.service';
 
-const routes: Routes = [Shell.childRoutes([{ path: '', component: HomeComponent, data: { title: extract('Home') } }])];
+const routes: Routes = [
+  Shell.childRoutes([{ path: '', component: HomeComponent, data: { title: extract('With Harper Lu') } }]),
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
